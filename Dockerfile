@@ -6,8 +6,8 @@ RUN apk update && apk upgrade \
 
 WORKDIR /xware
 ADD Xware1.0.31_armel_v5te_glibc.tar.gz /xware
-ADD monitor.sh /xware
+ADD start.sh /xware
 
 VOLUME /TDDownload
 
-ENTRYPOINT ["./monitor.sh"]
+ENTRYPOINT ["./start.sh"]
