@@ -1,4 +1,4 @@
-FROM forumi0721/alpine-armhf-base
+FROM forumi0721/alpine-aarch64-base
 
 
 RUN apk update && apk upgrade \
