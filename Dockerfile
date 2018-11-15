@@ -1,14 +1,15 @@
-FROM forumi0721/alpine-aarch64-base
+FROM aarch64/ubuntu
 
 
-RUN apk update && apk upgrade \
-    && apk --no-cache add libc6-compat zlib-dev bash
+RUN dpkg --add-architecture armhf \
+    && apt-get update && apt-get install libc6:armhf zlib1g:armhf \
+    && apt-get install libc6:armhf zlib1g:armhf
 
 WORKDIR /xware
 ADD Xware1.0.31_armel_v5te_glibc.tar.gz /xware
-
+ADD monitor.sh /xware
 RUN chmod a+x /xware/*
 
 VOLUME /TDDownload
 
-ENTRYPOINT ["./portal"]
+ENTRYPOINT ["./monitor.sh"]
