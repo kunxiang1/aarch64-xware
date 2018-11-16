@@ -1,4 +1,4 @@
-FROM aarch64/ubuntu:17.04
+FROM arm64v8/ubuntu:18.10
 
 
 RUN	dpkg --add-architecture armhf \
