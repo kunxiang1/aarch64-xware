@@ -1,8 +1,9 @@
-FROM aarch64/ubuntu:16.10
+FROM aarch64/ubuntu:17.04
 
 
-RUN apt-get update && apt-get install libc6:armhf zlib1g:armhf \
-    && ln -s /lib/ld-linux-armhf.so.3 /lib/ld-linux.so.3
+RUN	dpkg --add-architecture armhf \
+	apt-get update && apt-get install -y libc6:armhf zlib1g:armhf \
+	&& ln -s /lib/ld-linux-armhf.so.3 /lib/ld-linux.so.3
 
 WORKDIR /xware
 ADD Xware1.0.31_armel_v5te_glibc.tar.gz /xware
