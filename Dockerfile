@@ -1,9 +1,7 @@
 FROM aarch64/debian:stretch
 
 RUN	dpkg --add-architecture armhf \
-	&& apt-get update && apt-get upgrade -y && apt-get install -y libc6:armhf zlib1g:armhf \
-	&& ln -s /lib/ld-linux-armhf.so.3 /lib/ld-linux.so.3
-
+	&& apt-get update && apt-get upgrade -y 
 WORKDIR /xware
 ADD Xware1.0.31_armel_v5te_glibc.tar.gz /xware
 ADD monitor.sh /xware
