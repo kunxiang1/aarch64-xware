@@ -1,5 +1,4 @@
-FROM arm64v8/ubuntu:18.10
-
+FROM aarch64/debian:stretch
 
 RUN	dpkg --add-architecture armhf \
 	&& apt-get update && apt-get upgrade -y && apt-get install -y libc6:armhf zlib1g:armhf \
