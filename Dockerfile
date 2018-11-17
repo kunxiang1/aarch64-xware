@@ -2,7 +2,7 @@ FROM arm64v8/ubuntu:18.10
 
 
 RUN	dpkg --add-architecture armhf \
-	&& apt-get update && apt-get install -y libc6:armhf zlib1g:armhf \
+	&& apt-get update && apt-get upgrade -y && apt-get install -y libc6:armhf zlib1g:armhf \
 	&& ln -s /lib/ld-linux-armhf.so.3 /lib/ld-linux.so.3
 
 WORKDIR /xware
